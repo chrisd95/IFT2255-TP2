@@ -1,5 +1,7 @@
 package models;
 
+import Enums.Role;
+
 public class Benevole extends User{
 
     Benevole(int compteId, String email, String password, int code, String nom, String prenom, String codePostal, String ville, String telephone, Role role) {

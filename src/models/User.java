@@ -1,5 +1,7 @@
 package models;
 
+import Enums.Role;
+
 public class User {
 //    TODO compteId is string instead of int
     String compteId;

@@ -1,4 +1,4 @@
-package models;
+package Enums;
 
 public enum Role {
     EMPLOYEE,
