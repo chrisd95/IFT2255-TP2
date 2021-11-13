@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class ReservationRepository implements CrudRepository<Reservation, String>{
-    ArrayList<Reservation> list;
+    ArrayList<Reservation> list = new ArrayList<>();
 
     @Override
     public ArrayList<Reservation> findAll() {
-        return null;
+        return list;
     };
 
     @Override

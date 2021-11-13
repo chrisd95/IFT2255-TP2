@@ -4,7 +4,7 @@ import Enums.Role;
 
 public class Benevole extends User{
 
-    Benevole(int compteId, String email, String password, int code, String nom, String prenom, String codePostal, String ville, String telephone, Role role) {
+    Benevole(String compteId, String email, String password, int code, String nom, String prenom, String codePostal, String ville, String telephone, Role role) {
         super(compteId, email, password, code, nom, prenom, codePostal, ville, telephone, role);
     }
 
