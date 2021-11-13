@@ -1,8 +1,8 @@
 package Views;
 
 import Controllers.ReservationsController;
-import models.Reservation;
-import models.User;
+import Enums.TypeVaccin;
+import models.*;
 
 import java.io.Console;
 import java.text.ParseException;
@@ -224,18 +224,25 @@ public class AppMenu {
         boolean exit = false;
 
         do {
-            System.out.println("Est-ce que le visiteur peut remplir les informations? O/N");
-            String choix = ecouterChoix();
+            String choix = ecouterChoix("Est-ce que le visiteur peut remplir les informations? O/N");
             if(choix.equals("O")){
-                System.out.println("Entrez les informations personelles");
-                String infos = ecouterChoix();
-                if(infos.equals("Bons informations")){
+                FormPreVaccin vaccinForm = new FormPreVaccin();
+
+                vaccinForm.euCovid = ecouterChoix("Avez-vous eu la covid?").equals("O");
+                vaccinForm.premiereDose = ecouterChoix("Avez-vous deja recu une premiere dose?").equals("O");
+                vaccinForm.symptomesCovid = ecouterChoix("Avez-vous des symptomes de la covid?").equals("O");
+                vaccinForm.dateNaissance = parseDate(ecouterChoix("Date de naissance? dd/MM/yyyy"), "dd/MM/yyyy")
+                vaccinForm.vaccinSouhaite = TypeVaccin.valueOf(ecouterChoix("Quel vaccin souhaitez-vous recevoir? [Moderna, Pfizer, AstraZeneca, Janssen]"));
+                vaccinForm.cartreAssuranceMaladie = Integer.parseInt("Entrez votre numero de carte d'assurance maladie sans espace");
+                vaccinForm.allergies = ecouterChoix("Avez-vous des allergies? O/N").equals("O");
+
+                FormSante santeForm = new FormSante();
+
+                String infos = ecouterChoix("Entrez les informations personelles");
                     String formulaire = genererFormulaire(infos);
                     System.out.println(formulaire);
                     System.out.println("Impression formulaire");
-                    exit = true;
                     return true;
-                }
             }else{
                 System.out.println("Prendre un autre rendez-vous? O/N");
                 String prendreChoix = ecouterChoix();

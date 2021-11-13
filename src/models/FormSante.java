@@ -3,8 +3,8 @@ package models;
 import Enums.TypeVaccin;
 
 public class FormSante {
-    boolean euVaccin;
-    TypeVaccin nomVaccin;
-    String codeVaccin;
-    String lotVaccin;
+    public boolean euVaccin;
+    public TypeVaccin nomVaccin;
+    public String codeVaccin;
+    public String lotVaccin;
 }
